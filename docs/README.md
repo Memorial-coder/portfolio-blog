@@ -76,4 +76,4 @@ To change the accent colors or glass intensity, edit the variables in `src/index
 3. **Environment Variables**: Make sure to add `REACT_APP_EMAILJS_SERVICE_ID`, etc., in your hosting dashboard (Vercel/Netlify).
 
 ---
-**Made with ❤️ by [trahoangdev](https://github.com/trahoangdev)**
+Template attribution is preserved in LICENSE.

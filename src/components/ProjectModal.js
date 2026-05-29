@@ -5,8 +5,11 @@ import { faTimes, faExternalLinkAlt, faArrowRight } from '@fortawesome/free-soli
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import '../styles/ProjectModal.css';
 import PropTypes from 'prop-types';
+import { getCopy } from '../data/i18n';
+import RichText from './RichText';
 
-const ProjectModal = ({ project, onClose }) => {
+const ProjectModal = ({ project, language = 'en', onClose }) => {
+    const copy = getCopy(language);
     // Close on Escape key
     useEffect(() => {
         const handleEsc = (e) => {
@@ -37,33 +40,33 @@ const ProjectModal = ({ project, onClose }) => {
                     </div>
 
                     <div className="modal-info">
-                        <h2>{project.name}</h2>
+                        <h2>{language === 'zh' ? project.nameZh || project.name : project.name}</h2>
                         <div className="tags">
                             {project.language.split(',').map((tech, index) => (
                                 <span key={index} className="tech-tag">{tech.trim()}</span>
                             ))}
                         </div>
 
-                        <p className="description">{project.des}</p>
+                        <RichText className="description" compact content={language === 'zh' ? project.desZh || project.des : project.des} />
 
                         <div className="meta">
                             <div>
-                                <strong>Role:</strong> {project.mission}
+                                <strong>{copy.modal.role}:</strong> {language === 'zh' ? project.missionZh || project.mission : project.mission}
                             </div>
                         </div>
 
                         <div className="links">
                             {project.demoUrl && (
                                 <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                                    <FontAwesomeIcon icon={faExternalLinkAlt} /> Live Demo
+                                    <FontAwesomeIcon icon={faExternalLinkAlt} /> {copy.common.liveDemo}
                                 </a>
                             )}
                             <Link to={`/project/${project.id}`} className="btn btn-secondary">
-                                <FontAwesomeIcon icon={faArrowRight} /> Full Details
+                                <FontAwesomeIcon icon={faArrowRight} /> {copy.common.fullDetails}
                             </Link>
                             {project.githubUrl && (
                                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                                    <FontAwesomeIcon icon={faGithub} /> Source Code
+                                    <FontAwesomeIcon icon={faGithub} /> {copy.common.sourceCode}
                                 </a>
                             )}
                         </div>
@@ -85,6 +88,7 @@ ProjectModal.propTypes = {
         demoUrl: PropTypes.string,
         githubUrl: PropTypes.string,
     }),
+    language: PropTypes.string,
     onClose: PropTypes.func.isRequired,
 };
 

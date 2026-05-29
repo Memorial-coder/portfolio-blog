@@ -52,20 +52,28 @@
 .images {
     position: relative;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     transition: 0.3s;
 }
 
-.images img {
+.imageFrame {
+    aspect-ratio: 16 / 9;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.imageFrame img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    object-position: center;
     transition: 0.5s ease;
     filter: brightness(0.9);
 }
 
-.item:hover .images img {
+.item:hover .imageFrame img {
     transform: scale(1.03);
     filter: brightness(1.1);
 }
@@ -83,6 +91,8 @@
     text-align: left;
     margin-left: 0;
     margin-bottom: 30px;
+    color: var(--text-secondary);
+    line-height: 1.7;
 }
 
 .mission {
@@ -161,5 +171,83 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .projects {
+        padding: 64px 0;
+    }
+
+    .title {
+        font-size: 2.35rem;
+        line-height: 1.08;
+    }
+
+    .sectionDes {
+        padding: 0 18px;
+        margin-bottom: 38px;
+        font-size: 0.98rem;
+    }
+
+    .list {
+        gap: 56px;
+        margin-top: 42px;
+    }
+
+    .item,
+    .item:nth-child(even) {
+        gap: 24px;
+    }
+
+    .images {
+        margin: 0 16px;
+        border-radius: 16px;
+    }
+
+    .content {
+        padding: 0 16px;
+    }
+
+    .content h3 {
+        font-size: 1.95rem;
+        line-height: 1.15;
+        margin-bottom: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .content .des {
+        margin-bottom: 22px;
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .mission {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px;
+        text-align: left;
+        border-radius: 14px;
+    }
+
+    .mission svg {
+        font-size: 1.1rem;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .mission > div:last-child {
+        min-width: 0;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .title {
+        font-size: 2.1rem;
+    }
+
+    .content h3 {
+        font-size: 1.75rem;
     }
 }

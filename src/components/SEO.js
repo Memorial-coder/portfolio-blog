@@ -1,16 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { config } from '../data/config';
 import PropTypes from 'prop-types';
+import { useAppContext } from '../context/AppContext';
 
 const SEO = ({ title, description, type = 'website' }) => {
-    const siteTitle = config.seo?.title || config.name;
-    const siteDescription = config.seo?.description || config.description;
-    const siteKeywords = config.seo?.keywords || '';
+    const { siteConfig } = useAppContext();
+    const siteTitle = siteConfig.seo?.title || siteConfig.name;
+    const siteDescription = siteConfig.seo?.description || siteConfig.description;
+    const siteKeywords = siteConfig.seo?.keywords || '';
     const siteUrl = window.location.origin;
-    const siteImage = siteUrl + (config.seo?.ogImage || '/avatar.webp');
+    const ogImage = siteConfig.seo?.ogImage || siteConfig.avatarUrl || '/avatar.jpg';
+    const siteImage = ogImage.startsWith('http') ? ogImage : siteUrl + ogImage;
 
-    const currentTitle = title ? `${title} | ${config.name}` : siteTitle;
+    const currentTitle = title ? `${title} | ${siteConfig.name}` : siteTitle;
     const currentDescription = description || siteDescription;
 
     return (

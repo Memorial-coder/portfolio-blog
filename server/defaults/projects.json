@@ -1,0 +1,83 @@
+[
+  {
+    "id": "default-featured-project",
+    "order": 1,
+    "homepageOrder": 1,
+    "heroOrder": 1,
+    "showOnHomepage": true,
+    "showInHeroMenu": true,
+    "images": "/project1.webp",
+    "language": "TypeScript, Vue, JavaScript, Python, Java, CSS, Docker",
+    "demoUrl": "",
+    "githubUrl": "",
+    "blogSlug": "monochrome-portfolio",
+    "locales": {
+      "en": {
+        "name": "Featured Project",
+        "des": "A placeholder featured project for the portfolio homepage. Replace this with your own project details from the admin dashboard.",
+        "mission": "Project Maintainer"
+      },
+      "zh": {
+        "name": "Featured Project",
+        "des": "A placeholder featured project for the portfolio homepage. Replace this with your own project details from the admin dashboard.",
+        "mission": "Project Maintainer"
+      }
+    },
+    "createdAt": "2026-05-28T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  },
+  {
+    "id": "default-blog-project",
+    "order": 2,
+    "homepageOrder": 2,
+    "heroOrder": 2,
+    "showOnHomepage": true,
+    "showInHeroMenu": true,
+    "images": "/avatar.jpg",
+    "language": "React, CSS Modules, React Router, Markdown",
+    "demoUrl": "/",
+    "githubUrl": "",
+    "blogSlug": "typescript-journey",
+    "locales": {
+      "en": {
+        "name": "Monochrome Personal Blog",
+        "des": "A quiet black-and-white personal site for writing, project presentation, and long-term portfolio building.",
+        "mission": "Frontend Developer"
+      },
+      "zh": {
+        "name": "Monochrome Personal Blog",
+        "des": "A quiet black-and-white personal site for writing, project presentation, and long-term portfolio building.",
+        "mission": "Frontend Developer"
+      }
+    },
+    "createdAt": "2026-05-28T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  },
+  {
+    "id": "default-coming-soon",
+    "order": 3,
+    "homepageOrder": 3,
+    "heroOrder": 3,
+    "showOnHomepage": true,
+    "showInHeroMenu": true,
+    "images": "/project2.webp",
+    "language": "React, TypeScript, Product Design",
+    "demoUrl": "",
+    "githubUrl": "",
+    "blogSlug": "css-grid-flexbox",
+    "locales": {
+      "en": {
+        "name": "More Work Coming Soon",
+        "des": "A reserved slot for future experiments, tools, or open-source work.",
+        "mission": "In Progress"
+      },
+      "zh": {
+        "name": "More Work Coming Soon",
+        "des": "A reserved slot for future experiments, tools, or open-source work.",
+        "mission": "In Progress"
+      }
+    },
+    "createdAt": "2026-05-28T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  }
+]

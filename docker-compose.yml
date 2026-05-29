@@ -1,0 +1,19 @@
+services:
+  portfolio-blog:
+    build:
+      context: .
+      args:
+        NODE_IMAGE: docker.m.daocloud.io/library/node:24-alpine
+        NPM_CONFIG_REGISTRY: https://registry.npmmirror.com
+    container_name: portfolio-blog
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      DATA_DIR: /app/data
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in your local .env file}
+      SESSION_SECRET: ${SESSION_SECRET:?Set SESSION_SECRET in your local .env file}
+    volumes:
+      - ./data:/app/data

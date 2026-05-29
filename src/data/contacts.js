@@ -1,12 +1,12 @@
 export const contacts = [
     {
-        title: 'Phone Number',
-        value: '+84842366570'
+        title: 'GitHub',
+        value: 'Portfolio Owner'
     }, {
-        title: 'Email',
-        value: 'trahoangdev@gmail.com'
+        title: 'Featured Project',
+        value: 'Featured Project'
     }, {
-        title: 'Instagram',
-        value: '@trahoangdev'
+        title: 'Live Demo',
+        value: 'project-demo.example.com'
     }
 ];

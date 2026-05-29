@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Preloader.module.css';
+import { useAppContext } from '../context/AppContext';
+import { getCopy } from '../data/i18n';
 
 const Preloader = () => {
+    const { language } = useAppContext();
+    const copy = getCopy(language);
     const [isLoading, setIsLoading] = useState(true);
     const [fadeResult, setFadeResult] = useState(false);
 
@@ -23,13 +27,9 @@ const Preloader = () => {
                     <div className={styles.inner}></div>
                 </div>
                 <div className={styles.text}>
-                    <span>L</span>
-                    <span>O</span>
-                    <span>A</span>
-                    <span>D</span>
-                    <span>I</span>
-                    <span>N</span>
-                    <span>G</span>
+                    {copy.common.loading.split('').map((letter, index) => (
+                        <span key={`${letter}-${index}`}>{letter}</span>
+                    ))}
                 </div>
             </div>
         </div>

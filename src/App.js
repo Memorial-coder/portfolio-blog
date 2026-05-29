@@ -15,17 +15,23 @@ const ProjectDetail = lazy(() => import('./components/ProjectDetail'));
 const Uses = lazy(() => import('./components/Uses'));
 const Blog = lazy(() => import('./components/Blog'));
 const BlogPost = lazy(() => import('./components/BlogPost'));
+const AdminLogin = lazy(() => import('./components/AdminLogin'));
+const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
 const NotFound = lazy(() => import('./components/NotFound'));
 
 
 function App() {
-  const { theme, changeTabActive, registerSection } = useAppContext();
+  const { theme, language, changeTabActive, registerSection } = useAppContext();
 
   // No need for dispatch as changeTabActive is directly from context
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+  }, [language]);
 
   // Refs for sections
   const homeRef = useRef(null);
@@ -86,6 +92,8 @@ function App() {
         <Route path="/uses" element={<Uses />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

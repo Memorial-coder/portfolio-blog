@@ -1,55 +1,37 @@
 ---
-title: Building a Monochrome Portfolio in React
-date: "2026-01-05"
-description: How I handled theme switching, glassmorphism, and 3D interactions without cluttering the UI.
+title: Featured Project: Project Notes
+date: "2026-05-28"
+description: Notes on shaping Featured Project, an independently deployable Chinese pastoral management experience with online systems.
 ---
 
-# Building a Monochrome Portfolio
+# Featured Project: Project Notes
 
-Creating a portfolio that stands out but remains clean is a challenge. For my latest iteration, I chose a **strict monochrome palette**—black, white, and grays—accentuated only by depth and motion.
+`Featured Project` is my current public project: an independently deployable Chinese pastoral management experience.
 
-## 1. The Design Philosophy
+The project combines single-player management adventure with online capabilities such as accounts, cloud saves, a communication hall, game mail, and an AI assistant.
 
-> "Color is a distraction. Shape and motion tell the story."
+## Public Links
 
-I wanted the user to focus on the *structure* of my work. By removing color, I forced myself to rely on:
-- **Spacing**: Generous whitespace to let content breathe.
-- **Typography**: Using `Poppins` for a modern, geometric feel.
-- **Depth**: Glassmorphism (blur + transparency) to create layers.
+- GitHub repository: <>
+- Live demo: <>
 
-## 2. Implementing the 3D Avatar
+## Product Direction
 
-The interactive 3D card on the homepage uses CSS 3D transforms driven by mouse events.
+The project sits between a management game and a web application. That means the interface has to feel readable and durable, while the interactions still need to carry enough atmosphere for a pastoral world.
 
-```javascript
-const handleMouseMove = (e) => {
-    const card = cardRef.current;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+Key areas I care about:
 
-    // Calculate rotation based on cursor position relative to center
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    // ... math logic
-}
-```
+- Clear account and save-state flows.
+- Stable online features that do not break the solo experience.
+- UI details that support a Chinese pastoral tone without sacrificing usability.
+- A deployment shape that can be reused independently.
 
-## 3. Glassmorphism System
+## Engineering Notes
 
-I defined my glass styles in `variables.css` to ensure consistency:
+The public repository is mainly TypeScript and Vue, with supporting JavaScript, Python, Java, CSS, HTML, and Docker files.
 
-```css
-:root {
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-    --glass-backdrop: blur(15px);
-}
-```
+For a project like this, the engineering problem is less about a single clever component and more about keeping multiple systems aligned: player data, online interactions, presentation, deployment, and long-term maintainability.
 
-This allows me to apply `background: var(--glass-bg)` anywhere and get that instant premium feel.
+## Next Notes
 
-## Conclusion
-
-Building this portfolio was a lesson in restraint. It turns out, you don't need a rainbow to make a splash.
+I will keep using this blog to write down concrete decisions from the project: feature boundaries, interface changes, deployment notes, and useful implementation details.

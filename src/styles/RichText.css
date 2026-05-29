@@ -1,0 +1,88 @@
+.rich-text {
+    color: inherit;
+    line-height: inherit;
+    font-size: inherit;
+}
+
+.rich-text > :first-child {
+    margin-top: 0;
+}
+
+.rich-text > :last-child {
+    margin-bottom: 0;
+}
+
+.rich-text p,
+.rich-text ul,
+.rich-text ol,
+.rich-text blockquote,
+.rich-text pre,
+.rich-text table {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+.rich-text ul,
+.rich-text ol {
+    padding-left: 1.3em;
+}
+
+.rich-text li {
+    margin-bottom: 0.35em;
+}
+
+.rich-text a {
+    color: var(--primary-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+.rich-text strong {
+    color: var(--text-primary);
+}
+
+.rich-text code {
+    background: rgba(100, 100, 100, 0.2);
+    border-radius: 4px;
+    color: var(--primary-accent);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 2px 6px;
+}
+
+.rich-text pre {
+    overflow-x: auto;
+}
+
+.rich-text blockquote {
+    border-left: 3px solid var(--primary-accent);
+    color: var(--text-primary);
+    margin-left: 0;
+    padding-left: 1em;
+}
+
+.rich-text img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.rich-text--compact p,
+.rich-text--compact ul,
+.rich-text--compact ol,
+.rich-text--compact blockquote,
+.rich-text--compact pre,
+.rich-text--compact table {
+    margin-bottom: 0.55em;
+}
+
+.rich-text--compact h1,
+.rich-text--compact h2,
+.rich-text--compact h3,
+.rich-text--compact h4,
+.rich-text--compact h5,
+.rich-text--compact h6 {
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0 0 0.55em;
+}

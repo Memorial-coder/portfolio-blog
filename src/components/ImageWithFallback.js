@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const ImageWithFallback = ({ src, alt, fallbackSrc = '/placeholder.webp', ...props }) => {
     const [imgSrc, setImgSrc] = useState(src);
     const [hasError, setHasError] = useState(false);
+
+    useEffect(() => {
+        setImgSrc(src);
+        setHasError(false);
+    }, [src]);
 
     const handleError = () => {
         if (!hasError) {

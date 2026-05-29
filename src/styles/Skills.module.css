@@ -39,7 +39,7 @@
     text-align: center;
     transition: 0.4s ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .item:hover {
@@ -85,5 +85,51 @@
 
     .title {
         font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .skills {
+        padding: 64px 0;
+    }
+
+    .title {
+        font-size: 2.35rem;
+        line-height: 1.08;
+    }
+
+    .des {
+        padding: 0 18px;
+        margin-bottom: 38px;
+        font-size: 0.98rem;
+    }
+
+    .list {
+        gap: 18px;
+        padding: 0 16px;
+    }
+
+    .item {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .item:hover {
+        transform: none;
+    }
+
+    .item svg {
+        font-size: 2.8rem;
+        margin-bottom: 14px;
+    }
+
+    .item h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .title {
+        font-size: 2.1rem;
     }
 }

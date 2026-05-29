@@ -12,6 +12,9 @@
 # Production
 /build
 /dist
+/data
+/output
+/.playwright-cli
 
 # Misc
 .DS_Store

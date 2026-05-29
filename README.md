@@ -1,4 +1,4 @@
-# Professional Monochrome Portfolio Template by trahoangdev
+# Portfolio Blog Template
 
 A high-performance, developer-focused portfolio template built with **React**, **Context API**, and **CSS Modules**. Designed for those who appreciate minimalism, glassmorphism, and performance.
 
@@ -77,4 +77,4 @@ This project is built to be easily customized. The design system is based on **C
 MIT License - feel free to use this for your personal or professional projects.
 
 ---
-**Template made by [trahoangdev](https://github.com/trahoangdev)**
+Template attribution is preserved in LICENSE.

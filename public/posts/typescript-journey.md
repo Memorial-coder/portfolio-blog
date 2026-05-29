@@ -1,57 +1,28 @@
 ---
-title: Why I Switched to TypeScript
-date: "2025-12-12"
-description: From loose typing chaos to strict typing nirvana. A journey of finding bugs before they happen.
+title: Why This Blog Uses a Monochrome System
+date: "2026-05-28"
+description: A short design note about keeping the portfolio quiet, readable, and focused on work instead of decoration.
 ---
 
-# Why I Switched to TypeScript
+# Why This Blog Uses a Monochrome System
 
-JavaScript is flexible, and that's its superpower. But flexibility often leads to chaos, especially in large codebases. This is why I made the switch to **TypeScript**, and I haven't looked back since.
+I want this site to feel restrained: black, white, gray, typography, spacing, and motion doing most of the work.
 
-## 1. The "Undefined" Nightmare
+For a personal technical blog, that restraint matters. The site should make projects and notes easy to scan, not compete with them.
 
-We've all seen it: `Uncaught TypeError: Cannot read property 'x' of undefined`. 
+## Design Rules
 
-In JavaScript:
-```javascript
-function getUserName(user) {
-  return user.name; // user might be undefined!
-}
-```
+- Keep the palette close to black, white, and neutral gray.
+- Use contrast and layout before adding color.
+- Let project links and writing carry the focus.
+- Prefer readable sections over decorative panels.
 
-In TypeScript:
-```typescript
-interface User {
-  name: string;
-}
+## Why It Fits
 
-function getUserName(user: User) {
-  return user.name; // Guaranteed to exist (mostly)
-}
-```
+`Featured Project` has a rich product direction, but this portfolio does not need to imitate the game visually. The portfolio is the index: it should be calm, direct, and easy to update.
 
-## 2. Developer Experience (DX)
+That is why the first version keeps the interface simple and lets each project page or article add the detailed context.
 
-TypeScript isn't just about catching errors; it's about the **coding experience**. The autocompletion and intelligence it provides in VS Code is unmatched.
+## What Comes Next
 
-- **Refactoring**: Rename a symbol, and it updates everywhere.
-- **Intellisense**: Know exactly what properties an object has without `console.log` debugging.
-
-## 3. Interfaces vs Types
-
-One common question is when to use `interface` vs `type`.
-
-```typescript
-// Interface (Extendable)
-interface ButtonProps {
-  label: string;
-  onClick: () => void;
-}
-
-// Type (Union/Intersection)
-type Status = "success" | "error" | "loading";
-```
-
-## Conclusion
-
-The initial learning curve of TypeScript is quickly offset by the time saved in debugging. If you're building anything larger than a script, TypeScript is a must-have.
+The next pass should add more original screenshots, stronger project case-study pages, and a small writing system for build logs.

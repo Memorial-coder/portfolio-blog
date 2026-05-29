@@ -1,0 +1,66 @@
+{
+  "name": "Portfolio Owner",
+  "nickname": "Portfolio Owner",
+  "role": "Frontend Developer",
+  "focus": "Game-like Web Apps",
+  "featuredProject": "Featured Project",
+  "description": "I build polished web experiences with a focus on frontend architecture, interactive product details, and game-like application design.",
+  "descriptions": {
+    "en": "I build polished web experiences with a focus on frontend architecture, interactive product details, and game-like application design.",
+    "zh": "I build polished web experiences with a focus on frontend architecture, interactive product details, and game-like application design."
+  },
+  "roles": {
+    "en": "Frontend Developer",
+    "zh": "Frontend Developer"
+  },
+  "focuses": {
+    "en": "Game-like Web Apps",
+    "zh": "Game-like Web Apps"
+  },
+  "locations": {
+    "en": "Not public",
+    "zh": "Not public"
+  },
+  "email": "Not public",
+  "phone": "Not public",
+  "location": "Not public",
+  "birthday": "Open Source",
+  "gender": "Builder",
+  "nationality": "Not public",
+  "cvLink": "",
+  "avatarUrl": "/avatar.jpg",
+  "socials": {
+    "github": "",
+    "linkedin": "",
+    "twitter": "",
+    "instagram": ""
+  },
+  "seo": {
+    "title": "Portfolio Owner | Portfolio & Tech Notes",
+    "description": "Personal portfolio and technical notes by Portfolio Owner.",
+    "keywords": "Portfolio, Tech Blog, React, TypeScript",
+    "ogImage": "/avatar.jpg"
+  },
+  "home": {
+    "introPhrases": {
+      "en": [
+        "MY NAME IS",
+        "I BUILD WEB APPS",
+        "WELCOME"
+      ],
+      "zh": [
+        "MY NAME IS",
+        "I BUILD WEB APPS",
+        "WELCOME"
+      ]
+    },
+    "cta": {
+      "en": "View Work",
+      "zh": "View Work"
+    },
+    "ctaLink": "",
+    "heroAutoSwitch": true,
+    "heroAutoSwitchInterval": 5000,
+    "heroAutoSwitchResumeDelay": 2500
+  }
+}

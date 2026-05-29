@@ -1,0 +1,99 @@
+[
+  {
+    "id": "default-featured-project",
+    "slug": "monochrome-portfolio",
+    "status": "published",
+    "locales": {
+      "en": {
+        "title": "Featured Project Notes",
+        "excerpt": "Notes on shaping an independently deployable web project with online systems.",
+        "date": "May 28, 2026",
+        "readTime": "4 min read",
+        "tags": [
+          "TypeScript",
+          "Vue",
+          "Product"
+        ],
+        "content": "# Featured Project Notes\n\nThis article is a placeholder case study for the featured project. Replace it with your own project notes from the admin dashboard.\n\n## Product Direction\n\nThe project sits between a focused web application and a long-term portfolio case study. Keep the writing specific: scope, design choices, deployment notes, and what changed after testing.\n\n## Engineering Notes\n\nUse this section to describe the stack, data flow, deployment model, and tradeoffs."
+      },
+      "zh": {
+        "title": "Featured Project Notes",
+        "excerpt": "A placeholder project note that can be replaced from the admin dashboard.",
+        "date": "2026-05-28",
+        "readTime": "4 min read",
+        "tags": [
+          "TypeScript",
+          "Vue",
+          "Product"
+        ],
+        "content": "# Featured Project Notes\n\nThis is a default placeholder article. Replace it with your own project notes in the admin dashboard."
+      }
+    },
+    "createdAt": "2026-05-28T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  },
+  {
+    "id": "default-monochrome-system",
+    "slug": "typescript-journey",
+    "status": "published",
+    "locales": {
+      "en": {
+        "title": "Why This Blog Uses a Monochrome System",
+        "excerpt": "A short design note about keeping the portfolio quiet, readable, and focused on work.",
+        "date": "May 28, 2026",
+        "readTime": "3 min read",
+        "tags": [
+          "React",
+          "Design",
+          "CSS"
+        ],
+        "content": "# Why This Blog Uses a Monochrome System\n\nA restrained interface keeps the emphasis on projects and writing. Use contrast, spacing, typography, and motion before adding decoration.\n\n## Design Rules\n\n- Keep the palette close to black, white, and neutral gray.\n- Use readable sections over decorative panels.\n- Let project links and writing carry the focus."
+      },
+      "zh": {
+        "title": "Why This Blog Uses a Monochrome System",
+        "excerpt": "A placeholder design note that can be replaced from the admin dashboard.",
+        "date": "2026-05-28",
+        "readTime": "3 min read",
+        "tags": [
+          "React",
+          "Design",
+          "CSS"
+        ],
+        "content": "# Why This Blog Uses a Monochrome System\n\nThis is a default placeholder article. Replace it with your own design notes in the admin dashboard."
+      }
+    },
+    "createdAt": "2026-05-28T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  },
+  {
+    "id": "default-stack-inventory",
+    "slug": "css-grid-flexbox",
+    "status": "published",
+    "locales": {
+      "en": {
+        "title": "Technical Stack Inventory",
+        "excerpt": "A lightweight inventory of a public project stack and portfolio maintenance notes.",
+        "date": "May 28, 2026",
+        "readTime": "3 min read",
+        "tags": [
+          "Architecture",
+          "Stack"
+        ],
+        "content": "# Technical Stack Inventory\n\nUse this article as a starting point for documenting your stack. List the primary technologies, supporting tools, deployment runtime, and known maintenance tasks.\n\n```text\nPrimary:   React / Vue / TypeScript\nRuntime:   Docker\nContent:   Markdown and JSON data\n```"
+      },
+      "zh": {
+        "title": "Technical Stack Inventory",
+        "excerpt": "A placeholder stack note that can be replaced from the admin dashboard.",
+        "date": "2026-05-28",
+        "readTime": "3 min read",
+        "tags": [
+          "Architecture",
+          "Stack"
+        ],
+        "content": "# Technical Stack Inventory\n\nThis is a default placeholder article. Replace it with your own stack inventory in the admin dashboard."
+      }
+    },
+    "createdAt": "2026-05-28T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  }
+]

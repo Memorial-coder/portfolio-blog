@@ -1,11 +1,34 @@
-import React, { createContext, useState, useContext, useMemo, useCallback } from 'react';
+import React, { createContext, useEffect, useState, useContext, useMemo, useCallback } from 'react';
 import { LAYOUT } from '../config/constants';
+import { getDefaultSiteConfig, getSiteConfig, normalizeSiteConfig } from '../services/siteConfig';
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
     const [activeTab, setActiveTab] = useState('home');
     const [theme, setTheme] = useState('dark');
+    const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en');
+    const [siteConfig, setSiteConfig] = useState(() => getDefaultSiteConfig());
+
+    useEffect(() => {
+        let isMounted = true;
+
+        getSiteConfig()
+            .then((config) => {
+                if (isMounted) setSiteConfig(config);
+            })
+            .catch((error) => {
+                console.error('Failed to load site config:', error);
+            });
+
+        return () => {
+            isMounted = false;
+        };
+    }, []);
+
+    const updateSiteConfig = useCallback((nextConfig) => {
+        setSiteConfig(normalizeSiteConfig(nextConfig));
+    }, []);
 
     const changeTabActive = useCallback((tab) => {
         setActiveTab(tab);
@@ -13,6 +36,19 @@ export const AppProvider = ({ children }) => {
 
     const changeTheme = useCallback((newTheme) => {
         setTheme(newTheme);
+    }, []);
+
+    const changeLanguage = useCallback((newLanguage) => {
+        setLanguage(newLanguage);
+        localStorage.setItem('language', newLanguage);
+    }, []);
+
+    const toggleLanguage = useCallback(() => {
+        setLanguage((current) => {
+            const next = current === 'en' ? 'zh' : 'en';
+            localStorage.setItem('language', next);
+            return next;
+        });
     }, []);
 
     const sections = React.useRef({});
@@ -39,9 +75,14 @@ export const AppProvider = ({ children }) => {
         changeTabActive,
         theme,
         changeTheme,
+        language,
+        changeLanguage,
+        toggleLanguage,
+        siteConfig,
+        updateSiteConfig,
         registerSection,
         scrollToSection
-    }), [activeTab, theme, changeTabActive, changeTheme, registerSection, scrollToSection]);
+    }), [activeTab, theme, language, siteConfig, changeTabActive, changeTheme, changeLanguage, toggleLanguage, updateSiteConfig, registerSection, scrollToSection]);
 
     return (
         <AppContext.Provider value={value}>

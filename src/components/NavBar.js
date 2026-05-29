@@ -1,24 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 import styles from '../styles/NavBar.module.css';
 import { useAppContext } from '../context/AppContext';
-import { config } from "../data/config";
+import { getCopy } from '../data/i18n';
 
 const NavBar = () => {
-    const { activeTab, changeTabActive, theme, changeTheme, scrollToSection } = useAppContext();
+    const { activeTab, changeTabActive, theme, changeTheme, language, toggleLanguage, scrollToSection, siteConfig } = useAppContext();
+    const copy = getCopy(language);
     const [linkNav] = useState(['home', 'skills', 'projects', 'contacts']);
     const [statusNav, changeStatusNav] = useState(null);
+    const isNavOpen = statusNav === 'active';
+
+    useEffect(() => {
+        document.body.classList.toggle('nav-open', isNavOpen);
+
+        return () => {
+            document.body.classList.remove('nav-open');
+        };
+    }, [isNavOpen]);
+
 
     const toggleNav = () => {
-        changeStatusNav(statusNav === null ? 'active' : null);
+        changeStatusNav(isNavOpen ? null : 'active');
+    }
+
+    const closeNav = () => {
+        changeStatusNav(null);
     }
 
     const changeTab = (value) => {
         changeTabActive(value);
         scrollToSection(value);
-        toggleNav();
+        closeNav();
     }
 
     const toggleTheme = () => {
@@ -28,24 +43,27 @@ const NavBar = () => {
 
     return (
         <>
-            <div className={`${styles.overlay} ${statusNav === 'active' ? styles.active : ''}`} onClick={toggleNav}></div>
+            <div className={`${styles.overlay} ${isNavOpen ? styles.active : ''}`} onClick={closeNav}></div>
             <header className={styles.header}>
                 <div className={styles.container}>
                     <div className={styles.logo}>
                         <img src={theme === 'dark' ? "/logo-light.webp" : "/logo-dark.webp"} alt="Logo" />
-                        {config.nickname}
+                        {siteConfig.nickname}
                     </div>
-                    <nav className={`${styles.nav} ${statusNav === 'active' ? styles.active : ''}`}>
+                    <nav className={`${styles.nav} ${isNavOpen ? styles.active : ''}`}>
                         {
                             linkNav.map(value => (
                                 <span key={value}
                                     className={activeTab === value ? styles.active : ''}
-                                    onClick={() => changeTab(value)}>{value}</span>
+                                    onClick={() => changeTab(value)}>{copy.nav[value]}</span>
                             ))
                         }
-                        <Link to="/blog" onClick={toggleNav}>Tech Notes</Link>
+                        <Link to="/blog" onClick={closeNav}>{copy.nav.blog}</Link>
                     </nav>
                     <div className={styles.actions}>
+                        <button className={styles.languageToggle} onClick={toggleLanguage} aria-label="Toggle language">
+                            {copy.nav.languageToggle}
+                        </button>
                         <button className={styles.themeToggle} onClick={toggleTheme} aria-label="Toggle theme">
                             <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
                         </button>

@@ -1,9 +1,14 @@
 import React, { useRef, useState } from 'react';
 import styles from '../styles/Home.module.css';
-import { config } from '../data/config';
 import ImageWithFallback from './ImageWithFallback';
+import { useAppContext } from '../context/AppContext';
+import { getCopy } from '../data/i18n';
+import GlowCard from './GlowCard';
 
-const AvatarCard = () => {
+const AvatarCard = ({ variant = 'default' }) => {
+    const { language, siteConfig } = useAppContext();
+    const copy = getCopy(language);
+    const isCompact = variant === 'compact';
     const cardRef = useRef(null);
     const [rotation, setRotation] = useState({ x: 0, y: 0 });
     const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
@@ -31,14 +36,20 @@ const AvatarCard = () => {
     };
 
     return (
-        <div className={styles.avatar}>
-            <div
-                className={styles.card}
+        <div className={`${styles.avatar} ${isCompact ? styles.avatarCompact : ''}`}>
+            <GlowCard
+                className={`${styles.card} ${isCompact ? styles.cardCompact : ''}`}
                 ref={cardRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
+                onMouseMove={isCompact ? undefined : handleMouseMove}
+                onMouseLeave={isCompact ? undefined : handleMouseLeave}
+                borderRadius={isCompact ? 18 : 30}
+                glowRadius={isCompact ? 26 : 45}
+                edgeSensitivity={isCompact ? 14 : 18}
+                animated={!isCompact}
                 style={{
-                    transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                    transform: isCompact
+                        ? undefined
+                        : `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
                 }}
             >
                 {/* Glare Effect */}
@@ -50,20 +61,27 @@ const AvatarCard = () => {
                     }}
                 ></div>
 
-                {!imageLoaded && <div className={styles.skeletonLoading} style={{ height: '450px', width: '100%', borderRadius: '20px' }}></div>}
+                {!imageLoaded && (
+                    <div
+                        className={styles.skeletonLoading}
+                        style={{ height: isCompact ? '120px' : '450px', width: '100%', borderRadius: isCompact ? '14px' : '20px' }}
+                    ></div>
+                )}
                 <ImageWithFallback
-                    src="/avatar.webp"
-                    alt="Avatar"
+                    src={siteConfig.avatarUrl || '/avatar.jpg'}
+                    alt="Portfolio avatar"
                     onLoad={() => setImageLoaded(true)}
                     style={{ display: imageLoaded ? 'block' : 'none' }}
                 />
                 <div className={styles.info}>
-                    <div>{config.role}</div>
-                    <div>{config.nationality}</div>
-                    <div>{config.birthday}</div>
-                    <div>{config.gender}</div>
+                    <div>{copy.home.cardLabels.role}</div>
+                    <div>{siteConfig.roles?.[language] || siteConfig.role}</div>
+                    <div>{copy.home.cardLabels.focus}</div>
+                    <div>{siteConfig.focuses?.[language] || siteConfig.focus}</div>
+                    <div>{copy.home.cardLabels.project}</div>
+                    <div>{siteConfig.featuredProject}</div>
                 </div>
-            </div>
+            </GlowCard>
         </div>
     );
 };

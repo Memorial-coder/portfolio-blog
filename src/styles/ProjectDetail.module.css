@@ -43,6 +43,7 @@
 }
 
 .showcase {
+    aspect-ratio: 16 / 9;
     margin-bottom: 60px;
     border-radius: 20px;
     overflow: hidden;
@@ -52,8 +53,10 @@
 
 .showcase img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    object-position: center;
 }
 
 .content {
@@ -69,6 +72,12 @@
 }
 
 .content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.descriptionText {
     color: var(--text-secondary);
     line-height: 1.8;
     font-size: 1.1rem;
@@ -125,5 +134,75 @@
     .content {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+}
+@media (max-width: 600px) {
+    .projectDetail {
+        padding: 92px 0 46px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .backBtn {
+        margin-bottom: 28px;
+        font-size: 0.98rem;
+    }
+
+    .header h1 {
+        font-size: 2.4rem;
+        line-height: 1.08;
+        overflow-wrap: anywhere;
+    }
+
+    .meta {
+        margin-bottom: 28px;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .showcase {
+        margin-bottom: 36px;
+        border-radius: 16px;
+    }
+
+    .content {
+        gap: 28px;
+    }
+
+    .content h2 {
+        font-size: 1.55rem;
+        margin-bottom: 12px;
+    }
+
+    .content p {
+        font-size: 1rem;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .techStack {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btnPrimary,
+    .btnSecondary {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        padding: 13px 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    .header h1 {
+        font-size: 2.1rem;
     }
 }
